@@ -11,8 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: configure
+    - name: Pull dependencies
+      working-directory: ${{env.GITHUB_WORKSPACE}}
       run: build-initdeps.bat
 
-    - name: make
+    - name: Compile binaries
+      working-directory: ${{env.GITHUB_WORKSPACE}}
       run: build-MetaAudio.bat
