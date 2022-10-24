@@ -13,12 +13,8 @@ jobs:
     
     - name: Pull dependencies
       run: |
-        echo cd
-        echo %cd%
-        build-initdeps.bat
+        D:\a\MetaAudio\MetaAudio\build-initdeps.bat
 
     - name: Compile binaries
       run: |
-        echo cd
-        echo %cd%
-        build-MetaAudio.bat
+        D:\a\MetaAudio\MetaAudio\build-MetaAudio.bat
