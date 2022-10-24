@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - Name: Check working directory variable
+    - name: Check working directory variable
       run: |
         echo "1${{GITHUB_WORKSPACE}}"
         echo "2${{ GITHUB_WORKSPACE }}"
