@@ -11,13 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Check working directory variable
-      run: |
-        echo "1${{GITHUB_WORKSPACE}}"
-        echo "2${{ GITHUB_WORKSPACE }}"
-        echo "3${{env.GITHUB_WORKSPACE}}"
-        echo "4${{ env.GITHUB_WORKSPACE}} "
-    
     - name: Pull dependencies
       working-directory: ${{GITHUB_WORKSPACE}}
       run: |
