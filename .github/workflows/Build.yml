@@ -13,10 +13,12 @@ jobs:
     
     - name: Pull dependencies
       run: |
-        cd
+        echo cd
+        echo %cd%
         build-initdeps.bat
 
     - name: Compile binaries
       run: |
-        cd
+        echo cd
+        echo %cd%
         build-MetaAudio.bat
