@@ -13,11 +13,11 @@ jobs:
 
     - name: Get commit hash
       run: |
-        'CommitHash=$(git rev-parse --short=7 HEAD)' >> $env:GITHUB_ENV
+        "CommitHash=$(git rev-parse --short=7 HEAD)" >> $env:GITHUB_ENV
 
     - name: Get current date
       run: |
-        echo "CurrentDate=$(date +'%Y-%m-%d')" >> $env:GITHUB_ENV
+        "CurrentDate=$(date +'%Y-%m-%d')" >> $env:GITHUB_ENV
 
     - name: Pull dependencies
       run: ${{github.workspace}}\build-initdeps.bat
@@ -34,7 +34,7 @@ jobs:
     - name: Compress artifacts
       uses: papeloto/action-zip@v1
       with:
-        files: '${{github.workspace}}/build/externals/'
+        files: 'build/externals/'
         dest: '${{github.workspace}}/${{env.CurrentDate}}_MetaAudio-${{env.CommitHash}}.zip'
 
     - name: GitHub pre-release
