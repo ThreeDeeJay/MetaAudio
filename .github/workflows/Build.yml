@@ -16,3 +16,9 @@ jobs:
 
     - name: Compile binaries
       run: ${{github.workspace}}\build-MetaAudio.bat
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: MetaAudio
+        path: ${{github.workspace}}\build
