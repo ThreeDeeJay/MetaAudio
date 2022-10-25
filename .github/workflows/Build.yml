@@ -11,6 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - name: Get commit hash
+      run: "CommitHash=$(git rev-parse --short=7 HEAD)" >> $env:GITHUB_ENV
+
+    - name: Get current date
+      run: echo "CurrentDate=$(date +'%Y-%m-%d')" >> $env:GITHUB_ENV
+
     - name: Pull dependencies
       run: ${{github.workspace}}\build-initdeps.bat
 
@@ -22,3 +28,18 @@ jobs:
       with:
         name: MetaAudio
         path: ${{github.workspace}}\build
+
+    - name: Compress artifacts
+        uses: papeloto/action-zip@v1
+        with:
+          files: '${{github.workspace}}/build/'
+          dest: "build/[${{env.CurrentDate}}] MetaAudio-${{env.CommitHash}}.zip"
+
+    - name: GitHub pre-release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{secrets.GITHUB_TOKEN}}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "[${{env.CurrentDate}}] MetaAudio-${{env.CommitHash}}"
+        files: "build/*"
