@@ -13,8 +13,8 @@ jobs:
     
     - name: Pull dependencies
       run: |
-        D:\a\MetaAudio\MetaAudio\build-initdeps.bat
+        ${GITHUB_WORKSPACE}\build-initdeps.bat
 
     - name: Compile binaries
       run: |
-        D:\a\MetaAudio\MetaAudio\build-MetaAudio.bat
+        ${GITHUB_WORKSPACE}\build-MetaAudio.bat
