@@ -12,9 +12,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Pull dependencies
-      run: |
-        ${{github.workspace}}\build-initdeps.bat
+      run: ${{github.workspace}}\build-initdeps.bat
 
     - name: Compile binaries
-      run: |
-        ${{github.workspace}}\build-MetaAudio.bat
+      run: ${{github.workspace}}\build-MetaAudio.bat
