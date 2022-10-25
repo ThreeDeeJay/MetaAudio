@@ -12,18 +12,16 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Get commit hash
-      run: |
-        "CommitHash=$(git rev-parse --short=7 HEAD)" >> $env:GITHUB_ENV
+      run: "CommitHash=$(git rev-parse --short=7 HEAD)" >> $env:GITHUB_ENV
 
     - name: Get current date
-      run: |
-        "CurrentDate=$(date +'%Y-%m-%d')" >> $env:GITHUB_ENV
+      run: "CurrentDate=$(date +'%Y-%m-%d')" >> $env:GITHUB_ENV
 
     - name: Pull dependencies
-      run: ${{github.workspace}}\build-initdeps.bat
+      run: '${{github.workspace}}\build-initdeps.bat'
 
     - name: Compile binaries
-      run: ${{github.workspace}}\build-MetaAudio.bat
+      run: '${{github.workspace}}\build-MetaAudio.bat'
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.1
