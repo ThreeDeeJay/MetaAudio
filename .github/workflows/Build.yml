@@ -12,10 +12,10 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Get commit hash
-      run: "CommitHash=$(git rev-parse --short=7 HEAD)" >> $env:GITHUB_ENV
+      run: echo "CommitHash=$(git rev-parse --short=7 HEAD)" >> $env:GITHUB_ENV
 
     - name: Get current date
-      run: "CurrentDate=$(date +'%Y-%m-%d')" >> $env:GITHUB_ENV
+      run: echo "CurrentDate=$(date +'%Y-%m-%d')" >> $env:GITHUB_ENV
 
     - name: Pull dependencies
       run: '${{github.workspace}}\build-initdeps.bat'
