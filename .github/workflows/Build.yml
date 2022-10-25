@@ -17,7 +17,7 @@ jobs:
 
     - name: Get current date
       run: |
-        echo 'CurrentDate=$(date +'%Y-%m-%d')' >> $env:GITHUB_ENV
+        echo "CurrentDate=$(date +'%Y-%m-%d')" >> $env:GITHUB_ENV
 
     - name: Pull dependencies
       run: ${{github.workspace}}\build-initdeps.bat
