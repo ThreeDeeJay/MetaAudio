@@ -27,7 +27,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.1
       with:
         name: '${{env.CurrentDate}}_MetaAudio-${{env.CommitHash}}'
-        path: '${{github.workspace}}/build/externals'
+        path: '${{github.workspace}}/build'
 
     - name: Compress artifacts
       uses: papeloto/action-zip@v1
